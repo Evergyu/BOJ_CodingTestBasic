@@ -1,22 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include <cstdio>
+#include <iostream>
+using namespace std;
 
 int main() {
-	int n, i = 0;
-	long sum = 0;
+	int n, i;
+	long sum;
+	while (cin >> n) {	//EOF 종료에 대해 공부
+		i = 0;
+		sum = 0;
+		while (1) {
+			sum = sum * 10 + 1;
 
-	scanf("%d", &n);
-	i = 0;
-	while (1) {
-		sum = sum * 10 + 1;
-		
-		if (sum % n == 0) break;
-		
-		sum %= n;					//숫자가 매우 커질때 modular 연산을 이용해 줄일 수 있다.
-		++i;
+			if (sum % n == 0) break;
+
+			sum %= n;					//숫자가 매우 커질때 modular 연산을 이용해 줄일 수 있다.
+			++i;
+		}
+		printf("%d\n", i + 1);
 	}
-	printf("%d", i + 1);
-
 
 	return 0;
 }
